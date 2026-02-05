@@ -1,0 +1,300 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a1a;
+}
+
+/* === TOOLBAR === */
+
+#toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #d0d5dd;
+  user-select: none;
+}
+
+#toolbar button {
+  padding: 6px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #344054;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+#toolbar button:hover {
+  background: #f2f4f7;
+}
+
+#zoom-display {
+  font-size: 13px;
+  color: #667085;
+  min-width: 40px;
+  text-align: center;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background: #e4e7ec;
+}
+
+/* === CANVAS === */
+
+#canvas-viewport {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  cursor: grab;
+  background:
+    radial-gradient(circle at 1px 1px, #d0d5dd 1px, transparent 0) 0 0 / 40px 40px;
+}
+
+#canvas-viewport.panning {
+  cursor: grabbing;
+}
+
+#canvas-world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  /* transform set dynamically: translate(panX, panY) scale(zoom) */
+}
+
+/* === CANVAS ITEMS (top-level positioned wrappers) === */
+
+.canvas-item {
+  position: absolute;
+}
+
+/* === CARDS === */
+
+.card {
+  width: 240px;
+  min-height: 60px;
+  padding: 12px 14px;
+  padding-top: 20px;
+  background: #ffffff;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  cursor: default;
+  user-select: none;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.1);
+}
+
+.card:hover {
+  border-color: #98a2b3;
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.12);
+}
+
+.card.dragging {
+  opacity: 0.8;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.18);
+  z-index: 9999;
+}
+
+.card .drag-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  cursor: grab;
+  border-radius: 8px 8px 0 0;
+}
+
+.card .drag-handle::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: #d0d5dd;
+  border-radius: 2px;
+  margin: 6px auto 0;
+}
+
+.card .card-content {
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  outline: none;
+  color: #1d2939;
+  min-height: 1.5em;
+  cursor: text;
+}
+
+.card .card-content:empty::before {
+  content: "Skriv en tanke...";
+  color: #98a2b3;
+  font-style: italic;
+}
+
+/* === GROUPS === */
+
+.group {
+  min-width: 270px;
+  min-height: 80px;
+  background: rgba(249, 250, 251, 0.9);
+  border: 2px dashed #d0d5dd;
+  border-radius: 10px;
+  overflow: visible;
+  position: relative;
+}
+
+.group.drop-target {
+  border-color: #2e90fa;
+  background: rgba(239, 248, 255, 0.95);
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: grab;
+  background: rgba(242, 244, 247, 0.95);
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #d0d5dd;
+}
+
+.group-title {
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  flex: 1;
+  color: #344054;
+  cursor: text;
+  min-width: 20px;
+}
+
+.group-title:empty::before {
+  content: "Navngiv gruppe...";
+  color: #98a2b3;
+  font-style: italic;
+}
+
+.collapse-toggle {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667085;
+  border: none;
+  background: none;
+  border-radius: 3px;
+  font-family: inherit;
+  transition: background 0.1s;
+}
+
+.collapse-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #344054;
+}
+
+.group-children {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  min-height: 40px;
+}
+
+.group.collapsed .group-children {
+  display: none;
+}
+
+/* Cards/groups inside groups use flow layout, not absolute */
+.group-children > .card {
+  position: relative;
+  width: 100%;
+}
+
+.group-children > .group {
+  position: relative;
+  width: 100%;
+}
+
+/* Drop placeholder line inside groups */
+.drop-indicator {
+  height: 3px;
+  background: #2e90fa;
+  border-radius: 2px;
+  margin: -1px 0;
+}
+
+/* === CONTEXT MENU === */
+
+#context-menu {
+  position: fixed;
+  z-index: 2000;
+  background: #ffffff;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  padding: 4px 0;
+  min-width: 170px;
+  box-shadow: 0 4px 16px rgba(16, 24, 40, 0.12);
+}
+
+#context-menu.hidden {
+  display: none;
+}
+
+.ctx-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #344054;
+  transition: background 0.1s;
+}
+
+.ctx-item:hover {
+  background: #f2f4f7;
+}
+
+.ctx-separator {
+  height: 1px;
+  background: #e4e7ec;
+  margin: 4px 0;
+}
+
+/* === SELECTION === */
+
+.card.selected {
+  outline: 2px solid #2e90fa;
+  outline-offset: 2px;
+}
+
+.group.selected > .group-header {
+  outline: 2px solid #2e90fa;
+  outline-offset: -2px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Braindump</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toolbar">
+    <button id="btn-new-card">+ Kort</button>
+    <button id="btn-new-group">+ Gruppe</button>
+    <span class="separator"></span>
+    <button id="btn-export">Eksporter JSON</button>
+    <button id="btn-import">Importer JSON</button>
+    <input type="file" id="file-input" accept=".json" hidden>
+    <span class="separator"></span>
+    <span id="zoom-display">100%</span>
+    <button id="btn-zoom-reset">Nulstil zoom</button>
+  </div>
+
+  <div id="canvas-viewport">
+    <div id="canvas-world"></div>
+  </div>
+
+  <div id="context-menu" class="hidden">
+    <div class="ctx-item" data-action="new-card">Nyt kort her</div>
+    <div class="ctx-item" data-action="new-group">Ny gruppe her</div>
+    <div class="ctx-separator"></div>
+    <div class="ctx-item" data-action="copy">Kopier</div>
+    <div class="ctx-item" data-action="delete">Slet</div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
