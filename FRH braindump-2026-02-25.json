@@ -1,0 +1,180 @@
+{
+  "items": {
+    "group_hwstwe": {
+      "id": "group_hwstwe",
+      "type": "group",
+      "title": "LINES VOKSENBEHOV",
+      "children": [
+        "card_wki920",
+        "card_ztovhk"
+      ],
+      "collapsed": false
+    },
+    "card_i40clg": {
+      "id": "card_i40clg",
+      "type": "card",
+      "content": "Husk timer ved Selene"
+    },
+    "group_0av209": {
+      "id": "group_0av209",
+      "type": "group",
+      "title": "Ny gruppe",
+      "children": [
+        "card_i40clg"
+      ],
+      "collapsed": false
+    },
+    "card_ztovhk": {
+      "id": "card_ztovhk",
+      "type": "card",
+      "content": "Line tænker: Hver times samvær -> William bliver til en Johansen"
+    },
+    "card_2vt0o7": {
+      "id": "card_2vt0o7",
+      "type": "card",
+      "content": "Hvad siger DOMMEREN?"
+    },
+    "card_ob9j6o": {
+      "id": "card_ob9j6o",
+      "type": "card",
+      "content": "Hvad skal William igennem for at blive sund og rask og stærk og moden?"
+    },
+    "card_xwcjzm": {
+      "id": "card_xwcjzm",
+      "type": "card",
+      "content": "Hvad har William \"Lyst til\" nu og her?"
+    },
+    "card_wim0z9": {
+      "id": "card_wim0z9",
+      "type": "card",
+      "content": "Hvad er \"bedst for William\" set fra et psykologisk perspektiv?"
+    },
+    "card_wki920": {
+      "id": "card_wki920",
+      "type": "card",
+      "content": "Line: Hvis Anders får 10/4 beviser det, at LINE er DEFEKT!"
+    },
+    "group_eh90l9": {
+      "id": "group_eh90l9",
+      "type": "group",
+      "title": "Williams behov",
+      "children": [
+        "card_xwcjzm",
+        "card_wim0z9",
+        "card_ob9j6o",
+        "card_a4a6x0"
+      ],
+      "collapsed": false
+    },
+    "group_kulnmr": {
+      "id": "group_kulnmr",
+      "type": "group",
+      "title": "JURA",
+      "children": [
+        "card_2vt0o7"
+      ],
+      "collapsed": false
+    },
+    "card_a4a6x0": {
+      "id": "card_a4a6x0",
+      "type": "card",
+      "content": "Hvordan HAR William det hos fam. J?"
+    },
+    "card_ivgcr0": {
+      "id": "card_ivgcr0",
+      "type": "card",
+      "content": "JACOB er FOR HÅRD"
+    },
+    "group_h1fslh": {
+      "id": "group_h1fslh",
+      "type": "group",
+      "title": "Line(Jacob)",
+      "children": [
+        "card_ivgcr0"
+      ],
+      "collapsed": false
+    },
+    "card_dlt3dl": {
+      "id": "card_dlt3dl",
+      "type": "card",
+      "content": "- "
+    },
+    "group_aoa4a9": {
+      "id": "group_aoa4a9",
+      "type": "group",
+      "title": "Jacob(Jacob)",
+      "children": [
+        "card_dlt3dl"
+      ],
+      "collapsed": false
+    },
+    "group_rdjgax": {
+      "id": "group_rdjgax",
+      "type": "group",
+      "title": "Line(William)",
+      "children": [
+        "card_g3wm9s",
+        "card_smjz7e",
+        "card_8eu212"
+      ],
+      "collapsed": false
+    },
+    "card_smjz7e": {
+      "id": "card_smjz7e",
+      "type": "card",
+      "content": "William har det godt hos Anders"
+    },
+    "card_g3wm9s": {
+      "id": "card_g3wm9s",
+      "type": "card",
+      "content": "William har det skidt hos Anders"
+    },
+    "card_8eu212": {
+      "id": "card_8eu212",
+      "type": "card",
+      "content": "William har det GENERELT skidt"
+    }
+  },
+  "canvasNodes": [
+    {
+      "itemId": "group_hwstwe",
+      "x": 332,
+      "y": 256
+    },
+    {
+      "itemId": "group_0av209",
+      "x": -89.64652143965067,
+      "y": -23.042656363014856
+    },
+    {
+      "itemId": "group_eh90l9",
+      "x": 634.625860857586,
+      "y": 255.65474349922445
+    },
+    {
+      "itemId": "group_kulnmr",
+      "x": 924,
+      "y": 262
+    },
+    {
+      "itemId": "group_h1fslh",
+      "x": 20.076411650089177,
+      "y": 255.1955241621804
+    },
+    {
+      "itemId": "group_aoa4a9",
+      "x": 300.1741628986098,
+      "y": 10.449916275123506
+    },
+    {
+      "itemId": "group_rdjgax",
+      "x": -30.685640356115186,
+      "y": 413.82693668156907
+    }
+  ],
+  "viewport": {
+    "zoom": 1.1031862934373775,
+    "panX": 140.92182823216922,
+    "panY": 64.34434386022042
+  }
+}
